@@ -1,5 +1,4 @@
 #include <iostream>
-#include <bitset>
 
 #include "encode/encoder.h"
 #include "encode/string_utils.h"
@@ -11,7 +10,6 @@ using std::dec;
 using std::endl;
 using std::hex;
 using std::string;
-using std::bitset;
 
 // true for continue
 // false for exit
@@ -29,8 +27,15 @@ bool do_encoding() {
     cout << "Configure the encoder..." << endl;
 
     size_t block_size;
-    cout << "Enter block size: ";
-    cin >> block_size;
+    {
+        // read non-negative block size
+        while (true) {
+            cout << "Enter block size: ";
+            cin >> block_size;
+            if (block_size == 0) cout << "Block-size should be positive" << endl;
+            else break;
+        }
+    }
 
     unsigned int init_vector;
     cout << "Enter init-vector (HEX): ";
@@ -40,13 +45,13 @@ bool do_encoding() {
     {
         string shift_side_string;
         while (true) {
-            cout << "Enter shift side (`left` or `right`): ";
+            cout << "Enter shift side (`left` (`l`) or `right` (`r`)): ";
             cin >> shift_side_string;
-            if (shift_side_string == "left") {
+            if (shift_side_string == "l" || shift_side_string == "left") {
                 shift_side = LEFT;
                 break;
             }
-            if (shift_side_string == "right") {
+            if (shift_side_string == "r" || shift_side_string == "right") {
                 shift_side = RIGHT;
                 break;
             }
@@ -63,7 +68,7 @@ bool do_encoding() {
 
     string action;
     while (true) {
-        cout << "Enter your action (`encode (e)`, `decode (d)`, `reset (r)` or `exit (x)`): ";
+        cout << "Enter your action (`encode` (`e`), `decode` (`d`), `reset` (`r`) or `exit` (`x`)): ";
         cin >> action;
         if (action == "e" || action == "encode") {
             cout << "Enter string to encode: ";
