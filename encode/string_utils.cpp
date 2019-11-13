@@ -1,7 +1,5 @@
 #include "string_utils.h"
 
-#include <bitset>
-
 inline static vector<char> string_to_char_vector(const string &text, const size_t initial_size) {
     vector<char> characters(initial_size);
     std::copy(text.begin(), text.end(), characters.begin());
