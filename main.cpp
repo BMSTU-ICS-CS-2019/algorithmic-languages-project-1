@@ -16,11 +16,9 @@ using std::string;
 static bool do_encoding();
 
 int main() {
-    while (true) if (do_encoding()) cout << "Resetting encoder settings..." << endl;
-    else { // NOLINT(readability-misleading-indentation)
-        cout << "Thanks for using encoder, have a nice day!" << endl;
-        return 0;
-    }
+    while (do_encoding()) cout << "Resetting encoder settings..." << endl;
+    cout << "Thanks for using encoder, have a nice day!" << endl;
+    return 0;
 }
 
 bool do_encoding() {
