@@ -4,12 +4,12 @@
 #include <string>
 #include <vector>
 
-using std::vector;
 using std::string;
+using std::vector;
 
-vector<char> to_vector(const string& source);
+vector<char> string_to_char_vector(const string &text);
 
-vector<char> from_vector(const string& source);
+string char_vector_to_string(const vector<char> &text);
 
 vector<vector<char>> split(const string &text, size_t block_length);
 

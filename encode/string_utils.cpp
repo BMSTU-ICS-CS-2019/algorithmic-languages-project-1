@@ -2,26 +2,29 @@
 
 #include <bitset>
 
-inline static vector<char> to_vector(const string &text, const size_t initial_size) {
+inline static vector<char> string_to_char_vector(const string &text, const size_t initial_size) {
     vector<char> characters(initial_size);
     std::copy(text.begin(), text.end(), characters.begin());
 
     return characters;
 }
 
-inline vector<char> to_vector(const string &text) {
-    return to_vector(text, text.length());
+vector<char> string_to_char_vector(const string &text) {
+    return string_to_char_vector(text, text.length());
 }
 
-inline static vector<char> from_vector(const string &text, const size_t initial_size) {
-    vector<char> characters(initial_size);
-    std::copy(text.begin(), text.end(), characters.begin());
+inline static string char_vector_to_string(const vector<char> &characters, const size_t initial_size) {
+    auto text = initial_size > 0 ? string(initial_size, '\0') : "";
+    for (auto &character : characters) {
+        if (character == '\0') break;
+        text += character;
+    }
 
-    return characters;
+    return text;
 }
 
-inline vector<char> from_vector(const string &text) {
-    return to_vector(text, text.length());
+string char_vector_to_string(const vector<char> &text) {
+    return char_vector_to_string(text, 0);
 }
 
 vector<vector<char>> split(const string &text, const size_t block_length) {

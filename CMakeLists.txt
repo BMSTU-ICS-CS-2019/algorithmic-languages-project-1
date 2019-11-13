@@ -9,4 +9,4 @@ add_executable(
         encode/encoder.cpp encode/encoder.h
         encode/shift_side.cpp encode/shift_side.h
         encode/string_utils.cpp encode/string_utils.h
-        encode/base16encoder.cpp encode/base16encoder.h)
+        encode/base16encoder.cpp encode/base16encoder.h encode/debug/debug.h)

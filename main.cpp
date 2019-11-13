@@ -1,5 +1,4 @@
 #include <iostream>
-#include <random>
 #include <bitset>
 
 #include "encode/encoder.h"
@@ -72,7 +71,7 @@ bool do_encoding() {
             cin.ignore();
             getline(cin, text);
             // put into a constant to perform the operation safely
-            const auto encoded = to_base_16(encoder.encode(text));
+            const auto encoded = to_base_16(encoder.encode(string_to_char_vector(text)));
             cout << "Encoded: \"" << encoded << "\"" << endl;
             continue;
         }
@@ -82,7 +81,7 @@ bool do_encoding() {
             cin.ignore();
             getline(cin, text);
             // put into a constant to perform the operation safely
-            const auto decoded = encoder.decode(from_base_16(to_vector(text)));
+            const auto decoded = char_vector_to_string(encoder.decode(string_to_char_vector(from_base_16(text))));
             cout << "Decoded: \"" << decoded << "\"" << endl;
             continue;
         }
