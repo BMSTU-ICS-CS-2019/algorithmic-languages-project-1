@@ -36,6 +36,6 @@ inline static bool is_right(const shift_side side) {
  * @param side side in which the shift should happen
  * @param delta delta by which the shift happens
  */
-vector<char> shift(const vector<char> &block, shift_side side, size_t delta);
+void shift(vector<char> &block, shift_side side, size_t delta);
 
 #endif //LAB_11_SHIFT_SIDE_H

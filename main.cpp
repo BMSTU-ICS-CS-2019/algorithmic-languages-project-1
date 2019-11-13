@@ -1,4 +1,5 @@
 #include <iostream>
+#include <bitset>
 
 #include "encode/encoder.h"
 #include "encode/string_utils.h"

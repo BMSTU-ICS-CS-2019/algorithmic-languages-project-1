@@ -5,8 +5,8 @@
 
 const auto CHAR_BITS = sizeof(char) * 8;
 
-vector<char> shift(const vector<char> &block, const shift_side side, size_t delta) {
-    if (block.empty()) return block;
+void shift(vector<char> &block, const shift_side side, size_t delta) {
+    if (block.empty()) return;
 
     const auto size = block.size();
 
@@ -35,5 +35,5 @@ vector<char> shift(const vector<char> &block, const shift_side side, size_t delt
                         | ((unsigned int) block[(original_index - 1 + size) % size] & 0xFFu) << least_count;
 
     /* end of shifting logic */
-    return shifted;
+    block = shifted;
 }
