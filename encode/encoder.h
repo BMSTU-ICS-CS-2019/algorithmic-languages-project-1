@@ -1,7 +1,3 @@
-//
-// Created by progrm_jarvis on 04.11.2019.
-//
-
 #ifndef LAB_11_ENCODER_H
 #define LAB_11_ENCODER_H
 
