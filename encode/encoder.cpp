@@ -51,7 +51,7 @@ vector<char> encoder::decode(const vector<char> &encoded) {
             for (auto &character : block) *(iterator++) = character;
         }
     }
-    debug_bits(" Decoded: ", decoded);
+    debug_bits("Decoded: ", decoded);
 
     return decoded;
 }
