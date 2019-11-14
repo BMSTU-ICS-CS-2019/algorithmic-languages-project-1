@@ -42,7 +42,7 @@ string from_base_16(const string &encoded) {
     string decoded(length >> 1u, '\0');
 
     for (size_t i = 0; i < length; i += 2) decoded[i >> 1u]
-            = (unsigned int) (char_of_dictionary_code(encoded[i]) << 4u)
+            = (unsigned char) (char_of_dictionary_code(encoded[i]) << 4u)
                     | char_of_dictionary_code(encoded[i + 1]);
 
     return decoded;
