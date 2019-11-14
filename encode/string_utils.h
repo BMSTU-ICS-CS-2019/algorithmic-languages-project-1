@@ -7,11 +7,19 @@
 using std::string;
 using std::vector;
 
-vector<char> string_to_char_vector(const string &text);
+vector<char> string_to_char_vector(const string &text, size_t initial_size);
 
-string char_vector_to_string(const vector<char> &text);
+inline vector<char> string_to_char_vector(const string &text) {
+    return string_to_char_vector(text, text.length());
+}
 
-vector<vector<char>> split(const string &text, size_t block_length);
+string char_vector_to_string(const vector<char> &text, size_t initial_size);
+
+inline static string char_vector_to_string(const vector<char> &text) {
+    return char_vector_to_string(text, 0);
+}
+
+inline static vector<vector<char>> split(const string &text, size_t block_length);
 
 vector<vector<char>> split(const vector<char> &text, size_t block_length);
 

@@ -1,17 +1,13 @@
 #include "string_utils.h"
 
-inline static vector<char> string_to_char_vector(const string &text, const size_t initial_size) {
+vector<char> string_to_char_vector(const string &text, const size_t initial_size) {
     vector<char> characters(initial_size);
     std::copy(text.begin(), text.end(), characters.begin());
 
     return characters;
 }
 
-vector<char> string_to_char_vector(const string &text) {
-    return string_to_char_vector(text, text.length());
-}
-
-inline static string char_vector_to_string(const vector<char> &characters, const size_t initial_size) {
+string char_vector_to_string(const vector<char> &characters, const size_t initial_size) {
     auto text = initial_size > 0 ? string(initial_size, '\0') : "";
     for (auto &character : characters) {
         if (character == '\0') break;
@@ -19,10 +15,6 @@ inline static string char_vector_to_string(const vector<char> &characters, const
     }
 
     return text;
-}
-
-string char_vector_to_string(const vector<char> &text) {
-    return char_vector_to_string(text, 0);
 }
 
 vector<vector<char>> split(const string &text, const size_t block_length) {
